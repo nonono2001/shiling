@@ -15,7 +15,7 @@
             <view class="inputs_box">
               <view class="input_box">
                 <text class="input_text">提货卡号</text>
-                <input name="ticket"  type="tel"/>
+                <input name="ticket"  type="text"/>
               </view>
               <view class="input_box">
                 <text class="input_text" >密    码</text>
