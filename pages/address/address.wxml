@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<view class="container">
+  <view  class="bg bg4"> 
+    <view class="box box2">
+      <view class="box_form">
+        
+        <form class="" bindsubmit="formSubmit">
+          <view class="box_top">
+            <view class="img_box">
+              <image class="box_logo" src="../../images/logo.png"></image>
+            </view>
+            <view class="title">收货信息</view>
+          </view>
+          <view class="form_con">
+            <view class="inputs_box">
+              <view class="input_box">
+                <text class="input_text">收货地址</text>
+                <input name="user_address"  type="text" />
+              </view>
+              <view class="input_box">
+                <text class="input_text" >街道地址</text>
+                <input name="street_address"  type="text" />
+              </view>
+              <view class="input_box">
+                <text class="input_text" >联系方式</text>
+                <input name="mobile" type="tel" />
+              </view>
+              <view class="input_box">
+                <text class="input_text" >收件人</text>
+                <input name="recevier" type="text" />
+              </view>
+            </view>
+           
+              <button formType="submit">确定</button>
+          </view>
+        
+          
+        </form>
+      </view>
+    </view>
+  </view>
+
+<import src="../../src/wetoast.wxml"/>
+
+<!-- wetoast -->
+<template is="wetoast" data="{{...__wetoast__}}"/>
+</view>
+<!-- wetoast -->
+<!--index.wxml-->

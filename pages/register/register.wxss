@@ -1,0 +1,17 @@
+/* pages/register/register.wxss */
+.bg2{
+   background: url('../../images/bg_2.jpg') no-repeat center center /cover;
+}
+.box2{
+  margin-top: 225rpx;
+}
+.box .form_con .small_input{
+  width:177rpx;
+  float:left;
+  margin-right:4rpx;
+}
+.box .form_con .yzm_btn{
+  width:130rpx;
+  padding:0;
+  float:right;
+}

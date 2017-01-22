@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="container">
+  <view  class="bg bg5"> 
+    <view class="box box2">
+      <view class="box_form">
+        
+        
+          <view class="box_top">
+            <view class="img_box">
+              <image class="box_logo" src="../../images/logo.png"></image>
+            </view>
+            <view class="title">重塑对食物的信仰</view>
+          </view>
+          <view class="box_con">
+            <view class="text_1">
+              恭喜您！提货成功！
+            </view>
+            <view class="text_2">
+              我们将尽快为您安排发货
+              可致电{{tel}}查询
+            </view>
+            <view class="img_box">
+              <view class="img_left">
+                <image src="../../images/vcode_1.jpg"></image>
+                <view class="img_text">
+                  食令公众号
+                </view>
+              </view>
+              <view class="img_right">
+                <image src="../../images/vcode_2.jpg"></image>
+                <view class="img_text">
+                  食令小程序
+                </view>
+              </view>
+            </view>
+            <view class="btn_box">
+              <button bindtap="gotoShop">食令微商城</button>
+            </view>
+          </view>  
+          
+    
+      </view>
+    </view>
+  </view>
+
+<import src="../../src/wetoast.wxml"/>
+
+<!-- wetoast -->
+<template is="wetoast" data="{{...__wetoast__}}"/>
+</view>
+<!-- wetoast -->
+<!--index.wxml-->

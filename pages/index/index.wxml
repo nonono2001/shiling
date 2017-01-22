@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="container">
+  <view  class="bg bg1"> 
+    <view class="box box1">
+      <view class="box_form">
+        
+        <form class="" bindsubmit="formSubmit">
+          <view class="box_top">
+            <view class="img_box">
+              <image class="box_logo" src="../../images/logo.png"></image>
+            </view>
+            <view class="title">会员登录</view>
+          </view>
+          <view class="form_con">
+            <view class="inputs_box">
+              <view class="input_box">
+                <text class="input_text">手机号码</text>
+                <input name="mobile"  type="tel"/>
+              </view>
+              <view class="input_box">
+                <text class="input_text" >密    码</text>
+                <input name="password" type="password" />
+              </view>
+            </view>
+           
+              <button formType="submit">确定</button>
+          </view>
+        
+          
+        </form>
+      </view>
+    </view>
+  </view>
+
+<import src="../../src/wetoast.wxml"/>
+
+<!-- wetoast -->
+<template is="wetoast" data="{{...__wetoast__}}"/>
+</view>
+<!-- wetoast -->
+<!--index.wxml-->
