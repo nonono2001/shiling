@@ -1,6 +1,6 @@
 /**index.wxss**/
 .bg1{
-   background: url('../../images/bg_1.jpg') no-repeat center center /cover;
+   background: url('http://192.168.156.109/mobile/food/shiling_xcx/images/bg_1.jpg') no-repeat center center /cover;
 }
 
 .box1{
