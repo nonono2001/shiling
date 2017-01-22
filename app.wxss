@@ -23,7 +23,7 @@
     background-color:#262142;
    
     padding:18rpx;
-    background:url('../../images/bg_border.png') no-repeat center center/100% 100%;
+    background:url('https://www.sharingfoods.com/images/bg_border.png') no-repeat center center/100% 100%;
  
   }
   .box .img_box{
