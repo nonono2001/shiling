@@ -1,5 +1,8 @@
 {
   "pages":[
+    "pages/login/login",
+    "pages/bindcellphone/bindcellphone",
+
     "pages/index/index",
     "pages/register/register",
     "pages/logs/logs",

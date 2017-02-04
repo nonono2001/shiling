@@ -2,10 +2,12 @@
 let {WeToast} = require('src/wetoast.js')
 App({
   WeToast,
-  
-  
-   getUserInfo:function(cb){
-    console.log(2)
+  onLaunch: function () {
+   //this.getUserInfo()
+
+  },
+  /*
+  getUserInfo:function(cb){
     var that = this
     if(this.globalData.userInfo){
       typeof cb == "function" && cb(this.globalData.userInfo)
@@ -14,9 +16,9 @@ App({
         wx.login({
         success: function (e) {
           
-           wx.request({  
-            url:that.globalData.url+'?mod=login&act=login', 
-            data: {code:e.code},  
+           wx.request({
+            url:that.globalData.domain+'index.php?mod=login&act=login',  
+            data: {code:e.code},
             header: {  
                 'content-Type': 'application/json'  
             },  
@@ -69,11 +71,11 @@ App({
 
 
     }
-  },
+  }, */
   globalData:{
     userInfo:null,
     session_id:null,
     rand:null,
-     url:'https://www.sharingfoods.com/index.php'
+    domain:'https://www.sharingfoods.com/'
   }
 })

@@ -39,7 +39,8 @@ Page({
       return
     }
     wx.request({  
-      url: 'http://localhost/test/index.json',  
+      //url: 'http://localhost/test/index.json',
+      url:  'https://www.sharingfoods.com/index.php?mod=test&act=testinserttemp',
       data: formData,  
       header: {  
           'Content-Type': 'application/json'  
