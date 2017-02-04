@@ -6,7 +6,6 @@ Page({
   //检查手机号是否正确
   checkMobile:function (mobile){
     var mobileReg = /^1[34578]\d{9}$/;
-    
     return mobileReg.test(mobile);
   },
   mobileInput:function(e){

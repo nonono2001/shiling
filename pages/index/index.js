@@ -3,6 +3,7 @@
 var app = getApp()
 Page({
   data: {
+    userInfo:{}
   },
   
   //检查手机号是否正确
@@ -51,9 +52,26 @@ Page({
       }  
     })  
   },
+
+
   onLoad: function () {
     new app.WeToast()
-    var that = this
-    console.log(getApp().globalData.url)
-  }
+    var that=this;
+    app.getUserInfo(function(userInfo){
+      //更新数据
+      that.setData({
+        userInfo:userInfo
+      })
+      if(that.data.userInfo){
+        console.log('ok')
+      }
+    })
+      
+
+
+    
+
+  },
+
+
 })
