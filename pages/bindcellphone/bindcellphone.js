@@ -3,7 +3,7 @@ var app = getApp()
 Page({
   data:{
     yzm:'验证码',
-    'yzmBind':'getYzm'
+    yzmBind:'getYzm'
   },
   //检查手机号是否正确
   checkMobile:function (mobile){
@@ -39,10 +39,14 @@ Page({
           'Content-Type': 'application/json'  
       },  
       success: function(res) { 
-        console.log(getApp().globalData.domain); 
         if(res.data.done)
         {
           //短信验证码发送成功
+          that.wetoast.toast({
+            title: "验证码已发送",
+            duration: 2000
+          })
+
           that.disabled = true;
           var time = 6;
           that.setData({
@@ -127,25 +131,71 @@ Page({
       })
       return
     }
-    wx.request({  
-      url: 'http://localhost/test/index.json',  
-      data: formData,  
-      header: {  
-          'Content-Type': 'application/json'  
-      },  
-      success: function(res) {  
-        console.log(res.data) 
-        wx.navigateTo({
-          url: '../register/register'
-        })  
-      }  
-    })  
+
+    //先生成code登录凭证证
+    wx.login({
+        success: function(res) {
+        if (res.code) {
+            wx.request({  
+              //请求绑定
+              url: getApp().globalData.domain+'fajax.php?mod=login&act=do_bind_cellphone_openid',
+              data: {
+                'mobile':formData.mobile,
+                'yzm':formData.yzm,
+                'password':formData.password,
+                'repassword':formData.repassword,
+                'xcx_code':res.code
+              },  
+              header: {  
+                  'Content-Type': 'application/json'  
+              },  
+              success: function(res) {  
+                if(res.data.done)
+                {
+                  //绑定成功retval即为3rd_session_id
+                  //把3rd_session_id写入storage
+                  wx.setStorageSync('3rd_session_id', res.data.retval);
+                  //这就算登录成功了，跳转到提货页。
+                  wx.redirectTo({
+                                    url: '../ticket/ticket'
+                                })
+                }
+                else
+                {
+                  //绑定失败，40011-code可能过期，无法用code换取到openid和session_key；40013-操作失误，直接提示给用户
+                  if(res.data.retval == '40013')
+                  {
+                    that.wetoast.toast({
+                    title: res.data.msg,
+                    duration: 2000
+                    })
+                  }
+                  else if(res.data.retval == '40011')
+                  {
+                    //无法用code换取到openid和session_key,code可能过期
+                    //这时需要重新获取code。即跳到login页面面
+                    wx.redirectTo({
+                                    url: '../login/login'
+                                    })
+
+                  }
+                }
+              }  
+            })
+        }
+        else
+        {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
+      
   },
     
   onLoad:function(options){
      new app.WeToast()
     // 页面初始化 options为页面跳转所带来的参数
-    //console.log(options);
+    
   },
   onReady:function(){
     // 页面渲染完成

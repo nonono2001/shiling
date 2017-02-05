@@ -14,6 +14,7 @@
           <view class="form_con">
             <view class="inputs_box">
               <view class="input_box">
+                
                 <text class="input_text">手机号码</text>
                 <input name="mobile" bindinput="mobileInput" value="{{mobile}}"  type="text"/>
               </view>
@@ -31,8 +32,9 @@
                 <input name="repassword" type="password" />
               </view>
 
-              <view class="input_box" style="margin-left:5px;">
-                <text style="font-size:12px;color:#D25858;">tip:如果您已通过其他渠道注册了会员，本次提交的密码会成为新的密码。</text>
+              <view class="input_box" style="margin-left:7px;">
+                <text style="font-size:12px;color:#cea869;">绑定后您将成为食令会员。\n</text>
+                <text style="font-size:12px;color:#D25858;"><br />tip:如果您已通过其他渠道注册了会员，本次提交的密码会成为新的密码。</text>
               </view>
 
               

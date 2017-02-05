@@ -14,7 +14,7 @@
           <view class="form_con">
             <view class="inputs_box">
               <view class="input_box">
-                <text class="input_text">收货地址</text>
+                <text class="input_text">省市区</text>
                 <input name="user_address"  type="text" />
               </view>
               <view class="input_box">

@@ -17,7 +17,7 @@
             </view>
             <view class="text_2">
               我们将尽快为您安排发货
-              可致电{{tel}}查询
+              可致电021-52912877查询
             </view>
             <view class="img_box">
               <view class="img_left">
@@ -33,7 +33,7 @@
                 </view>
               </view>
             </view>
-            <view class="btn_box">
+            <view class="btn_box" style="display:none;">
               <button bindtap="gotoShop">食令微商城</button>
             </view>
           </view>  

@@ -3,14 +3,14 @@
 var app = getApp()
 Page({
   data: {
-    tel:'tel'
+
   },
   
   //事件处理函数
   gotoShop: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    // wx.navigateTo({
+    //   url: '../logs/logs'
+    // })
   },
   
   
@@ -18,11 +18,14 @@ Page({
     new app.WeToast()
     var that = this
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+    // app.getUserInfo(function(userInfo){
+    //   //更新数据
+    //   that.setData({
+    //     userInfo:userInfo
+    //   })
+    // })
+
+    //这个页面没啥，就不检查登录状态了。
+    
   }
 })

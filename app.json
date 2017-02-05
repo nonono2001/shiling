@@ -1,14 +1,11 @@
 {
   "pages":[
-    "pages/login/login",
-    "pages/bindcellphone/bindcellphone",
-
-    "pages/index/index",
-    "pages/register/register",
-    "pages/logs/logs",
     "pages/ticket/ticket",
     "pages/address/address",
+    "pages/login/login",
+    "pages/bindcellphone/bindcellphone",
     "pages/success/success"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

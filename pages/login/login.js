@@ -8,6 +8,7 @@ Page({
     
   onLoad: function () {
     //console.log(getApp().globalData.domain)
+    console.log('login page onload;');
     wx.login({
         success: function(res) {
         if (res.code) {
@@ -33,7 +34,13 @@ Page({
                     //res.data.done为真时，登录成功
                     if(res.data.done)
                     {
-
+                        //绑定成功retval即为3rd_session_id
+                        //把3rd_session_id写入storage
+                        wx.setStorageSync('3rd_session_id', res.data.retval);
+                        //这就算登录成功了，跳转到提货页。
+                        wx.redirectTo({
+                            url: '../ticket/ticket'
+                        })
                     }
                     else //res.data.done为假时，登录失败败
                     {
@@ -46,7 +53,7 @@ Page({
                             })
                         }
 
-                        //一种可能是尚未绑定手机号号。retval为40012
+                        //一种可能是尚未绑定手机号。retval为40012
                         if(res.data.retval == '40012')
                         {
                             //跳转到绑定手机号的页面。

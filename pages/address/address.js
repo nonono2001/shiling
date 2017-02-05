@@ -22,10 +22,10 @@ Page({
     var that = this;  
     var formData = e.detail.value; 
 
-    if(!formData.user_address){
+    if(!formData.city_address){
     
      this.wetoast.toast({
-            title: '请输入收货地址',
+            title: '请输入省市区',
             duration: 1000
       })
       return
@@ -43,7 +43,7 @@ Page({
     if(!this.checkMobile(formData.mobile)){
      
      this.wetoast.toast({
-            title: '请输入正确的联系方式',
+            title: '请输入正确的手机号',
             duration: 1000
       })
       return
@@ -62,8 +62,15 @@ Page({
     }
     
     wx.request({  
-      url: 'http://localhost/test/index.json',  
-      data: formData,  
+      url: getApp().globalData.domain+'fajax.php?mod=tihuo_apply&act=do_send_shouhuoinfo&xcx_session_id='+xcx_session_id,   
+      data: {
+        address_city:formData.city_address,
+        address_street:formData.street_address,
+        lianxidianhua:formData.mobile,
+        shuohuoren:formData.recevier,
+        tihuo_card_no:this.data.ticket,
+        tihuo_password:this.data.ticketpassword
+      }  ,
       header: {  
           'Content-Type': 'application/json'  
       },  
@@ -79,6 +86,21 @@ Page({
   onLoad:function(options){
      new app.WeToast()
     // 页面初始化 options为页面跳转所带来的参数
+
+    //有些页面，一进来首先要检查是否已登录。未登录，不允许访问，跳转到登录页。已登录则留在本页。
+    app.checkLogin();
+
+    //从ticket页面传过来卡号+密码
+    var ticket = options.ticket;
+    var ticketpassword = options.ticketpassword;
+
+    this.setData({
+      ticket: ticket,
+      ticketpassword:ticketpassword
+    });
+
+    
+    
   },
   onReady:function(){
     // 页面渲染完成
