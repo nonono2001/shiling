@@ -15,7 +15,7 @@
             <view class="inputs_box">
               <view class="input_box">
                 <text class="input_text">省市区</text>
-                <input name="user_address"  type="text" />
+                <input name="city_address"  type="text" />
               </view>
               <view class="input_box">
                 <text class="input_text" >街道地址</text>
@@ -23,7 +23,7 @@
               </view>
               <view class="input_box">
                 <text class="input_text" >联系方式</text>
-                <input name="mobile" type="tel" />
+                <input name="mobile"  type="number" />
               </view>
               <view class="input_box">
                 <text class="input_text" >收件人</text>

@@ -21,7 +21,6 @@ Page({
 
     var that = this;  
     var formData = e.detail.value; 
-
     if(!formData.city_address){
     
      this.wetoast.toast({
@@ -48,9 +47,6 @@ Page({
       })
       return
     }
-
-    
-    
     
     if(!formData.recevier){
     
@@ -60,7 +56,7 @@ Page({
       })
       return
     }
-    
+    var xcx_session_id = wx.getStorageSync('3rd_session_id');
     wx.request({  
       url: getApp().globalData.domain+'fajax.php?mod=tihuo_apply&act=do_send_shouhuoinfo&xcx_session_id='+xcx_session_id,   
       data: {
@@ -75,10 +71,36 @@ Page({
           'Content-Type': 'application/json'  
       },  
       success: function(res) {  
-        console.log(res.data) 
-        wx.navigateTo({
-          url: '../register/register'
-        })  
+        if(res.data.done)
+        {
+          //提货信息发送成功，跳转到成功恭喜页
+          wx.redirectTo({
+                            url: '../success/success'
+                        });
+
+        }
+        else
+        {
+            //提货信息发送失败
+            //未登录
+            if(res.data.retval == '40010')
+            {
+                wx.redirectTo({
+                            url: '../login/login'
+                        });
+
+            }
+            else if(res.data.retval == '40013')
+            {
+              //可能是少输信息，或者已发货等各种可能的失败原因。
+              that.wetoast.toast({
+                title: res.data.msg,
+                duration: 2000
+              });
+            }
+
+
+        }
       }  
     })  
   },

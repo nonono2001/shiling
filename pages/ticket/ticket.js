@@ -58,7 +58,7 @@ Page({
               //检查卡号+密码出错。也有可能是卡券礼品已发货。
               that.wetoast.toast({
                 title: res.data.msg,
-                duration: 1000
+                duration: 2000
               });
             }
         }

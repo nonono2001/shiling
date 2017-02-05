@@ -14,9 +14,10 @@
           <view class="form_con">
             <view class="inputs_box">
               <view class="input_box">
-                <text class="input_text">提货卡号</text>
-                <input name="ticket"  type="text"/>
+                <text class="input_text" >提货卡号</text>
+                <input name="ticket" type="text" />
               </view>
+
               <view class="input_box">
                 <text class="input_text" >密    码</text>
                 <input name="ticketpassword" type="password" />
