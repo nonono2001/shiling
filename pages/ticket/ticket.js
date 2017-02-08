@@ -3,6 +3,8 @@
 var app = getApp()
 Page({
   data: {
+    btn_queding:'确定',
+    btn_queding_disabled:false,
   },
   
   
@@ -25,6 +27,12 @@ Page({
       })
       return
     }
+
+    //让按钮失去效果
+    this.setData({
+        btn_queding:'请稍候',
+        btn_queding_disabled:true
+    })
 
     //先获取3rd_session_id
     var xcx_session_id = wx.getStorageSync('3rd_session_id');
@@ -55,7 +63,13 @@ Page({
             }
             else if(res.data.retval == '40013')
             {
-              //检查卡号+密码出错。也有可能是卡券礼品已发货。
+              //恢复按钮功能
+              that.setData({
+                      btn_queding:'确定',
+                      btn_queding_disabled:false
+                  })
+
+              //检查卡号+密码出错。也有可能是卡券礼品已发货。直接提示给客户
               that.wetoast.toast({
                 title: res.data.msg,
                 duration: 2000

@@ -3,7 +3,9 @@ var app = getApp()
 Page({
   data:{
     yzm:'验证码',
-    yzmBind:'getYzm'
+    yzmBind:'getYzm',
+    btn_queding:'确定',
+    btn_queding_disabled:false,
   },
   //检查手机号是否正确
   checkMobile:function (mobile){
@@ -47,7 +49,7 @@ Page({
             duration: 2000
           })
 
-          that.disabled = true;
+          //让按钮失去效果
           var time = 6;
           that.setData({
               yzm:time,
@@ -60,7 +62,7 @@ Page({
                 yzm:time
             })
             if(that.data.yzm==0){
-          
+              //让按钮恢复效果
               that.setData({
                     yzm:'验证码',
                     yzmBind:'getYzm'
@@ -132,6 +134,12 @@ Page({
       return
     }
 
+    //让按钮失去效果
+    this.setData({
+        btn_queding:'请稍候',
+        btn_queding_disabled:true
+    })
+
     //先生成code登录凭证证
     wx.login({
         success: function(res) {
@@ -165,6 +173,12 @@ Page({
                   //绑定失败，40011-code可能过期，无法用code换取到openid和session_key；40013-操作失误，直接提示给用户
                   if(res.data.retval == '40013')
                   {
+                    //恢复按钮功能
+                    that.setData({
+                            btn_queding:'确定',
+                            btn_queding_disabled:false
+                        })
+
                     that.wetoast.toast({
                     title: res.data.msg,
                     duration: 2000

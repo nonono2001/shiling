@@ -24,7 +24,7 @@
               </view>
             </view>
            
-              <button formType="submit">确定</button>
+              <button disabled="{{btn_queding_disabled}}" formType="submit">{{btn_queding}}</button>
           </view>
         
           

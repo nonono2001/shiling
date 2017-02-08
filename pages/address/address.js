@@ -2,6 +2,8 @@
 var app = getApp()
 Page({
   data:{
+    btn_queding:'确定',
+    btn_queding_disabled:false,
   },
   //检查手机号是否正确
   checkMobile:function (mobile){
@@ -56,6 +58,13 @@ Page({
       })
       return
     }
+
+    //让按钮失去效果
+    this.setData({
+        btn_queding:'请稍候',
+        btn_queding_disabled:true
+    })
+
     var xcx_session_id = wx.getStorageSync('3rd_session_id');
     wx.request({  
       url: getApp().globalData.domain+'fajax.php?mod=tihuo_apply&act=do_send_shouhuoinfo&xcx_session_id='+xcx_session_id,   
@@ -92,6 +101,12 @@ Page({
             }
             else if(res.data.retval == '40013')
             {
+              //让按钮恢复效果
+              that.setData({
+                  btn_queding:'确定',
+                  btn_queding_disabled:false
+              })
+
               //可能是少输信息，或者已发货等各种可能的失败原因。
               that.wetoast.toast({
                 title: res.data.msg,
