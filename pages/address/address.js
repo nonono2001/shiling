@@ -32,7 +32,7 @@ Page({
     if(!formData.street_address){
     
      this.wetoast.toast({
-            title: '请输入街道地址',
+            title: '请输入详细地址',
             duration: 1000
       })
       return

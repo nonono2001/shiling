@@ -18,7 +18,7 @@
                 <input name="city_address"  type="text" />
               </view>
               <view class="input_box">
-                <text class="input_text" >街道地址</text>
+                <text class="input_text" >详细地址</text>
                 <input name="street_address"  type="text" />
               </view>
               <view class="input_box">

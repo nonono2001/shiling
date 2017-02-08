@@ -8,7 +8,6 @@ Page({
     
   onLoad: function () {
     //console.log(getApp().globalData.domain)
-    console.log('login page onload;');
     wx.login({
         success: function(res) {
         if (res.code) {

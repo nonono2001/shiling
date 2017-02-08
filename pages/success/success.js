@@ -9,7 +9,7 @@ Page({
   //事件处理函数
   gotoShop: function() {
     // wx.navigateTo({
-    //   url: '../logs/logs'
+    //   url: 'https://kdt.im/-s2PEr'
     // })
   },
   
